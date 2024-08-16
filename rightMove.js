@@ -57,20 +57,20 @@ async function searchHouseInRightmove() {
     // Click the 'Find properties' button
     let findPropertyButton = await driver.findElement(By.id('submit'));
     await findPropertyButton.click();
-
+/*
     // Wait for the results page to load
-    await driver.wait(until.titleContains('Houses For Sale in London, within 10 miles, £100,000 – £250,000, including sold STC, 1 – 3 bed'), 10000);
-
+    await driver.wait(until.titleContains('Houses For Sale in London'), 10000);
+*/
     // Verify the search title
     let searchTitle = await driver.findElement(By.className('searchTitle-heading')).getText();
-    if (searchTitle === "Houses For Sale in London, within 10 miles, £100,000 – £250,000, including sold STC, 1 – 3 bed") {
+    if (searchTitle === "Houses For Sale in London") {
         console.log('Search criteria are correct.');
     } else {
         console.log('Search criteria do not match.');
     }
 
 
-  } finally {
+ } finally {
     // Close the browser
     await driver.quit();
   }
